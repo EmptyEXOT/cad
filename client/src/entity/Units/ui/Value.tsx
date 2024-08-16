@@ -14,9 +14,11 @@ enum ValueOutput {
     Main = 'output/main',
 }
 
-type ValueNode = Node<{
-    capacity: number,
-}, 'value'>
+export type ValueProps = {
+    capacity: number,    
+}
+
+type ValueNode = Node<ValueProps, 'value'>
 
 export const ValueNode = (props: NodeProps<ValueNode>) => {
 

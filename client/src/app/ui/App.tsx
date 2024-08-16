@@ -66,27 +66,6 @@ export const App: FC<AppProps> = ({
         [setEdges],
     );
 
-    // const addNode = useCallback(() => {
-    //     const newNode = {
-    //         type: UnitType.Value,
-    //         id: v4(), // Generate a unique ID
-    //         position: { x: Math.random() * 400, y: Math.random() * 400 }, // Random position for the node
-    //         data: { capacity: 32 }, // Node label
-    //         handles: [] as NodeHandle[]
-    //     };
-    //     dispatch(unitsActions.addUnit({
-    //         data: newNode.data,
-    //         id: newNode.id,
-    //         position: newNode.position,
-    //         type: newNode.type,
-    //         handles: [
-
-    //         ]
-    //     }))
-    //     setNodes((nds) => nds.concat(newNode)); // Add new node to the existing nodes
-    // }, [nodes, setNodes]);
-
-    const addNode = useAddUnit(nodes, setNodes);
     return (
         <div className={classNames('w-screen h-screen')}>
             <ReactFlow

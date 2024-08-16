@@ -7,9 +7,11 @@ import { Handle } from '@xyflow/react';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
 
-type PolymerizatorNode = Node<{
+export type PolymerizatorProps = {
     capacity: number,
-}, 'polymerizator'>
+}
+
+type PolymerizatorNode = Node<PolymerizatorProps, 'polymerizator'>
 
 enum PolymerizatorInput {
     Main = 'input/main',

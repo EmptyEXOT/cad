@@ -1,20 +1,20 @@
-import { useCallback } from "react";
-import { UnitType, unitTypes } from '@/entity/Units/unitTypes';
-import { v4 } from "uuid";
-import { NodeHandle } from "@xyflow/system/dist/esm/types/nodes";
-import { useAppDispatch } from "@/shared/store/hooks";
 import { unitsActions } from "@/entity/Units";
-import { useReactFlow, Node } from "@xyflow/react";
+import { UnitType } from '@/entity/Units/unitTypes';
+import { useAppDispatch } from "@/shared/store/hooks";
+import { useReactFlow } from "@xyflow/react";
+import { NodeHandle } from "@xyflow/system/dist/esm/types/nodes";
+import { useCallback } from "react";
+import { v4 } from "uuid";
 
-export const useAddUnit = (nodes: any, setNodes: any) => {
+export const useAddUnit = () => {
+    const reactFlow = useReactFlow()
     const dispatch = useAppDispatch()
-    const reactFlow = useReactFlow();
-    return (unitType: UnitType) => useCallback(() => {
+    const addUnit = <T extends {}>(unitType: UnitType, data: T) => useCallback(() => {
         const newNode = {
             type: unitType,
-            id: v4(), // Generate a unique ID
-            position: { x: Math.random() * 400, y: Math.random() * 400 }, // Random position for the node
-            data: { capacity: 32 }, // Node label
+            id: v4(),
+            position: { x: Math.random() * 400, y: Math.random() * 400 },
+            data,
             handles: [] as NodeHandle[]
         };
         dispatch(unitsActions.addUnit({
@@ -26,6 +26,7 @@ export const useAddUnit = (nodes: any, setNodes: any) => {
 
             ]
         }))
-        reactFlow.setNodes((nds) => nds.concat(newNode)); // Add new node to the existing nodes
-    }, [nodes, setNodes]);
+        reactFlow.setNodes((nds) => nds.concat(newNode));
+    }, [reactFlow.getNodes(), reactFlow.setNodes]);
+    return addUnit;
 }

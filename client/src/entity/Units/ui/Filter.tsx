@@ -5,9 +5,11 @@ import classNames from 'classnames';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
 
-type FilterNode = Node<{
-    capacity: number,
-}, 'filter'>
+export type FilterProps = {
+    capacity: number
+}
+
+type FilterNode = Node<FilterProps, 'filter'>
 
 enum FilterInput {
     Main = 'input/main',
