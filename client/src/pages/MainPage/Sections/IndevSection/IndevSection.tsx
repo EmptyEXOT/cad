@@ -1,17 +1,14 @@
-import React, {FC, ReactNode} from 'react';
+import { Section } from "@/shared/ui/Section/Section";
+import { Typo } from "@/shared/ui/Typo/Typo";
+import { TypoWeight } from "@/shared/ui/Typo/types";
 import classNames from "classnames";
-import {Section} from "@/shared/ui/Section/Section";
-import {Typo} from "@/shared/ui/Typo/Typo";
-import {TypoAlign, TypoWeight} from "@/shared/ui/Typo/types";
+import { FC, ReactNode } from 'react';
 
 interface IndevSectionProps {
     children?: ReactNode,
 }
 
-export const IndevSection: FC<IndevSectionProps> = ({
-                                                        children,
-                                                        ...props
-                                                    }) => {
+export const IndevSection: FC<IndevSectionProps> = () => {
     return (
         <Section className={classNames(
             'flex flex-col gap-8 pt-24 pb-4',

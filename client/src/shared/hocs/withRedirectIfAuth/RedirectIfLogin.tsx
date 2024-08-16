@@ -1,5 +1,5 @@
-import React, {FC, ReactNode} from 'react';
-import {Navigate, useLoaderData} from "react-router-dom";
+import { FC, ReactNode } from 'react';
+import { Navigate, useLoaderData } from "react-router-dom";
 
 interface RedirectIfLogin {
     to: string,

@@ -1,6 +1,5 @@
-import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
-import {Typo} from "@/shared/ui/Typo/Typo";
+import { FC } from 'react';
 
 interface ImgProps {
     src: string,
@@ -9,11 +8,10 @@ interface ImgProps {
 }
 
 export const Img: FC<ImgProps> = ({
-                                      src,
-                                      alt,
-                                      className,
-                                      ...props
-                                  }) => {
+    src,
+    alt,
+    className,
+}) => {
     return (
         <div className={classNames(
             'z-30 relative',
@@ -21,7 +19,7 @@ export const Img: FC<ImgProps> = ({
         )}>
             <img className={classNames(
                 'object-contain h-full w-full'
-            )} src={src} alt={alt}/>
+            )} src={src} alt={alt} />
         </div>
     );
 };

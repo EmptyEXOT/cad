@@ -9,7 +9,7 @@ import { v4 } from "uuid";
 export const useAddUnit = () => {
     const reactFlow = useReactFlow()
     const dispatch = useAppDispatch()
-    const addUnit = <T extends {}>(unitType: UnitType, data: T) => useCallback(() => {
+    const addUnit = <T extends Record<string, unknown>>(unitType: UnitType, data: T) => useCallback(() => {
         const newNode = {
             type: unitType,
             id: v4(),

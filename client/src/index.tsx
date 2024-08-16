@@ -1,10 +1,9 @@
-import {createRoot} from "react-dom/client";
-import React from "react";
-import {ThemeProvider} from "@/shared/theme/ThemeProvider";
-import {StoreProvider} from "@/shared/store/StoreProvider";
-import {RouterProvider} from "react-router-dom";
-import {router} from "@/shared/router/router";
-import {Theme} from "@/shared/theme/types";
+import { router } from "@/shared/router/router";
+import { StoreProvider } from "@/shared/store/StoreProvider";
+import { ThemeProvider } from "@/shared/theme/ThemeProvider";
+import { Theme } from "@/shared/theme/types";
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 
 const container = document.getElementById('root');
 

@@ -1,9 +1,9 @@
-import {SwitchAction, SwitchActionType} from "@/shared/ui/Switch/type";
+import { SwitchAction, SwitchActionType } from "@/shared/ui/Switch/type";
 
 type TSwitchReducer = (state: boolean, action: SwitchAction) => boolean
 
 export const switchReducer: TSwitchReducer = (state, action) => {
-    const {type, payload} = action
+    const { type } = action
     switch (type) {
         case SwitchActionType.Switch:
             return !state;

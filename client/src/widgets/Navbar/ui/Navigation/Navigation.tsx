@@ -1,20 +1,19 @@
-import React, {FC} from 'react';
+import { useBreakpoint } from '@/shared/hooks/useBreakpoint';
+import { Dropdown } from "@/shared/ui/Dropdown/Dropdown/Dropdown";
+import { DropdownProvider } from "@/shared/ui/Dropdown/provider/Dropdown.provider";
+import { Menu } from "@/shared/ui/Menu/ui/Menu";
+import { Typo } from "@/shared/ui/Typo/Typo";
 import classNames from "classnames";
+import { FC } from 'react';
 import NavbarLink from "../NavbarLink";
-import {Typo} from "@/shared/ui/Typo/Typo";
-import {Link} from "react-router-dom";
-import {Dropdown} from "@/shared/ui/Dropdown/Dropdown/Dropdown";
-import {DropdownProvider} from "@/shared/ui/Dropdown/provider/Dropdown.provider";
-import {useBreakpoint} from '@/shared/hooks/useBreakpoint';
-import {Menu} from "@/shared/ui/Menu/ui/Menu";
 
 
 interface NavigationProps {
     className?: string
 }
 
-export const Navigation: FC<NavigationProps> = ({className, ...props}) => {
-    const {isMd} = useBreakpoint('md')
+export const Navigation: FC<NavigationProps> = ({ className }) => {
+    const { isMd } = useBreakpoint('md')
 
 
     return (
@@ -25,9 +24,9 @@ export const Navigation: FC<NavigationProps> = ({className, ...props}) => {
             <NavbarLink to={'news'}><Typo.H3 className={classNames('text-contrast-dark')}>News</Typo.H3></NavbarLink>
             {isMd ?
                 <Menu anchor={<div><Typo.H3 className={classNames('text-contrast-dark')}>Exercises</Typo.H3></div>}
-                      className={classNames(
-                          'top-8 bg-primary-dark p-4 border border-solid border-neutral-500 rounded-xl flex flex-col gap-4 right-0'
-                      )}>
+                    className={classNames(
+                        'top-8 bg-primary-dark p-4 border border-solid border-neutral-500 rounded-xl flex flex-col gap-4 right-0'
+                    )}>
                     <NavbarLink to={'app/coordination'}><Typo.H3 className={classNames('text-contrast-dark')}>Coordination</Typo.H3></NavbarLink>
                     <NavbarLink to={'app/alphabet'}><Typo.H3 className={classNames('text-contrast-dark')}>Alphabet</Typo.H3></NavbarLink>
                     <NavbarLink to={'app/rudiments'}><Typo.H3 className={classNames('text-contrast-dark')}>Rudiment</Typo.H3></NavbarLink>
@@ -35,7 +34,7 @@ export const Navigation: FC<NavigationProps> = ({className, ...props}) => {
                 <DropdownProvider>
                     <Dropdown
                         title={<NavbarLink to={'app'}><Typo.H3 className={classNames('text-contrast-dark')}>Exercises</Typo.H3></NavbarLink>}
-                        control={<Dropdown.Control/>}
+                        control={<Dropdown.Control />}
                     >
                         <div className={classNames(
                             'text-amber-600 w-full flex flex-col gap-4 pt-3',

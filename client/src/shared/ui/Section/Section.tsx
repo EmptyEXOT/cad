@@ -9,7 +9,6 @@ interface SectionProps {
 export const Section: FC<SectionProps> = ({
                                               children,
                                               className,
-                                              ...props
                                           }) => {
     return (
         <div className={classNames(

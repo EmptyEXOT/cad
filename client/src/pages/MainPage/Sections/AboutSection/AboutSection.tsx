@@ -1,19 +1,16 @@
-import React, {FC, ReactNode} from 'react';
+import { Theme } from "@/shared/theme/types";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import { Section } from "@/shared/ui/Section/Section";
+import { TypoWeight } from "@/shared/ui/Typo/types";
+import { Typo, TypoVariant } from '@/shared/ui/Typo/Typo';
 import classNames from "classnames";
-import {TypoWeight} from "@/shared/ui/Typo/types";
-import {Typo, TypoVariant} from '@/shared/ui/Typo/Typo';
-import {Section} from "@/shared/ui/Section/Section";
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
-import {Theme} from "@/shared/theme/types";
+import { FC, ReactNode } from 'react';
 
 interface AboutSectionProps {
     children?: ReactNode,
 }
 
-export const AboutSection: FC<AboutSectionProps> = ({
-                                                        children,
-                                                        ...props
-                                                    }) => {
+export const AboutSection: FC<AboutSectionProps> = () => {
     return (
         <Section className={classNames(
             'flex flex-col gap-8 pt-24 pb-24',

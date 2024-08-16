@@ -1,7 +1,7 @@
-import React, {ReactNode, FC, useReducer} from 'react';
-import {switchReducer} from "@/shared/ui/Switch/reducer/SwitchReducer";
+import React, { ReactNode, FC, useReducer } from 'react';
+import { switchReducer } from "@/shared/ui/Switch/reducer/SwitchReducer";
 import { SwitchContext } from '../context/Switch.context';
-import {SwitchDispatchContext} from "@/shared/ui/Switch/context/SwitchDispatch.context";
+import { SwitchDispatchContext } from "@/shared/ui/Switch/context/SwitchDispatch.context";
 
 interface SwitchProviderProps {
     children?: ReactNode,
@@ -9,10 +9,9 @@ interface SwitchProviderProps {
 }
 
 export const SwitchProvider: FC<SwitchProviderProps> = ({
-                                                            children,
-                                                            isOnDefault = false,
-                                                            ...props
-                                                        }) => {
+    children,
+    isOnDefault = false,
+}) => {
     const [state, reducer] = useReducer(switchReducer, isOnDefault)
 
     return (

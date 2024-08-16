@@ -1,33 +1,30 @@
-import React, {FC, ReactNode} from 'react';
-import classNames from "classnames";
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
 import OpenIcon from "@/shared/assets/openIcon.svg";
-import {Header} from './Header';
-import {Description} from './Description';
-import {AboutJourneySvg} from './AboutJourneySVG';
-import {AboutAppSvg} from "./AboutAppSVG";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import classNames from "classnames";
+import { FC, ReactNode } from 'react';
+import { AboutAppSvg } from "./AboutAppSVG";
+import { AboutJourneySvg } from './AboutJourneySVG';
+import { Description } from './Description';
+import { Header } from './Header';
 
 interface OverviewBlockProps {
     children?: ReactNode,
 }
 
-export const OverviewBlock: FC<OverviewBlockProps> = ({
-                                                          children,
-                                                          ...props
-                                                      }) => {
+export const OverviewBlock: FC<OverviewBlockProps> = () => {
     return (
         <div className={classNames(
             'flex flex-col gap-6 mb-12',
             'md:basis-1/2 md:mb-0',
         )}>
-            <Header/>
+            <Header />
             <div className={classNames('relative')}>
-                <AboutJourneySvg/>
+                <AboutJourneySvg />
             </div>
             <div className={classNames('relative')}>
-                <AboutAppSvg/>
+                <AboutAppSvg />
             </div>
-            <Description/>
+            <Description />
 
             {/*TODO move to features model*/}
             <div className={classNames(
@@ -41,7 +38,7 @@ export const OverviewBlock: FC<OverviewBlockProps> = ({
                         'md:ps-0'
                     )}>
                     Explore
-                    <OpenIcon/>
+                    <OpenIcon />
                 </Button>
             </div>
         </div>

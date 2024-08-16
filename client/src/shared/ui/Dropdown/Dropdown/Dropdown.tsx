@@ -1,8 +1,9 @@
-import React, {ReactNode} from 'react';
+/* eslint-disable react/prop-types */
 import classNames from "classnames";
-import {DropdownComponent} from '../types';
-import {Control} from '../Control/Control';
-import {useDropdown} from '../hooks/useDropdown';
+import { ReactNode } from 'react';
+import { Control } from '../Control/Control';
+import { useDropdown } from '../hooks/useDropdown';
+import { DropdownComponent } from '../types';
 import cls from './Dropdown.module.scss';
 
 export interface DropdownProps {
@@ -15,7 +16,6 @@ export const Dropdown: DropdownComponent = ({
                                                 control,
                                                 title,
                                                 children,
-                                                ...props
                                             }) => {
     const {isOpen} = useDropdown()
 

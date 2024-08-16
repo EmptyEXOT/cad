@@ -1,10 +1,8 @@
-import React, {FC, ReactNode} from 'react';
+import { useNavbarDispatch } from "@/widgets/Navbar/hooks/useNavbarDispatch";
+import { NavbarActionType } from "@/widgets/Navbar/types";
 import classNames from "classnames";
-import {useNavbar} from "@/widgets/Navbar/hooks/useNavbar";
-import {useNavbarDispatch} from "@/widgets/Navbar/hooks/useNavbarDispatch";
-import {NavbarActionType} from "@/widgets/Navbar/types";
-import {Typo} from "@/shared/ui/Typo/Typo";
-import {Link} from "react-router-dom";
+import { FC, ReactNode } from 'react';
+import { Link } from "react-router-dom";
 
 interface NavbarLinkProps {
     children: ReactNode,
@@ -16,11 +14,11 @@ const NavbarLink: FC<NavbarLinkProps> = ({
                                              children,
                                              closeOnClick = true,
                                              to,
-                                             ...props
                                          }) => {
     const dispatchNavbar = useNavbarDispatch()
 
     const close = () => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         closeOnClick && dispatchNavbar({type: NavbarActionType.Close})
     }
 

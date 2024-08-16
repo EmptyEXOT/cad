@@ -1,7 +1,7 @@
-import React, {FC, ReactNode} from 'react';
+import { Typo } from '@/shared/ui/Typo/Typo';
+import { TypoWeight } from "@/shared/ui/Typo/types";
 import classNames from "classnames";
-import {Typo} from '@/shared/ui/Typo/Typo'
-import {TypoWeight} from "@/shared/ui/Typo/types";
+import { FC, ReactNode } from 'react';
 
 interface CardProps {
     children?: ReactNode,
@@ -11,12 +11,10 @@ interface CardProps {
 }
 
 export const Card: FC<CardProps> = ({
-                                        children,
-                                        description,
-                                        header,
-                                        icon,
-                                        ...props
-                                    }) => {
+    description,
+    header,
+    icon,
+}) => {
     return (
         <div className={classNames('flex flex-col gap-4 w-full')}>
             {icon}

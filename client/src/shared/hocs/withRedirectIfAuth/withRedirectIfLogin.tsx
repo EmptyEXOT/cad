@@ -1,5 +1,5 @@
-import React, {ReactNode} from "react";
-import {RedirectIfLogin} from "@/shared/hocs/withRedirectIfAuth/RedirectIfLogin";
+import { RedirectIfLogin } from "@/shared/hocs/withRedirectIfAuth/RedirectIfLogin";
+import { ReactNode } from "react";
 
 export const withRedirectIfLogin = (children: ReactNode, to: string) => {
     return (

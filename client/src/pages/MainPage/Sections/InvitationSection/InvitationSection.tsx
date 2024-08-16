@@ -1,19 +1,16 @@
-import React, {FC, ReactNode} from 'react';
-import classNames from "classnames";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
-import {Section} from "@/shared/ui/Section/Section";
-import {Theme} from "@/shared/theme/types";
+import { Theme } from "@/shared/theme/types";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import { Section } from "@/shared/ui/Section/Section";
+import { Typo, TypoVariant } from "@/shared/ui/Typo/Typo";
 import DrumImage from "assets/Hero.jpg";
+import classNames from "classnames";
+import { FC, ReactNode } from 'react';
 
 interface InvitationSectionProps {
     children?: ReactNode,
 }
 
-export const InvitationSection: FC<InvitationSectionProps> = ({
-                                                                  children,
-                                                                  ...props
-                                                              }) => {
+export const InvitationSection: FC<InvitationSectionProps> = () => {
     return (
 
         <div>
@@ -29,7 +26,7 @@ export const InvitationSection: FC<InvitationSectionProps> = ({
                 )}>
                     <img src={DrumImage} alt={'Drum'} className={classNames(
                         'object-cover filter grayscale-80 brightness-20 scale-110 h-screen w-full',
-                    )}/>
+                    )} />
                 </div>
                 <div className={classNames('2xl:max-w-[1024px] px-0 w-full flex flex-col gap-5')}>
                     <Typo.H2 variant={TypoVariant.PrimaryLight}>Получите новый опыт проектирования АСУТП прямо

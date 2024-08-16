@@ -1,6 +1,5 @@
-import React, {FC, forwardRef, InputHTMLAttributes, ReactNode, useEffect, useRef, useState} from 'react';
 import classNames from "classnames";
-import cls from "./Input.module.scss"
+import React, { FC, InputHTMLAttributes, ReactNode } from 'react';
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
     children?: ReactNode
@@ -14,12 +13,10 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     type?: string,
 }
 
-type InputRef = HTMLInputElement
 
 const Input: FC<InputProps> = (
     {
         name,
-        children,
         value,
         onChange,
         label,
@@ -27,11 +24,9 @@ const Input: FC<InputProps> = (
         placeholder = '',
         type = 'text',
         className,
-        onReset,
         ...props
     }
 ) => {
-    const [isFocused, setFocus] = useState<boolean>(autofocus)
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value)
     }

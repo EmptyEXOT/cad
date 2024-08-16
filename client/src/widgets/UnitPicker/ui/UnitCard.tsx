@@ -1,20 +1,16 @@
-import { FC, ReactNode } from 'react';
-import classNames from 'classnames';
-import { Typo } from '@/shared/ui/Typo/Typo';
 import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
-import { UnitType } from '@/entity/Units/unitTypes';
+import { Typo } from '@/shared/ui/Typo/Typo';
+import classNames from 'classnames';
+import { FC } from 'react';
 
 interface UnitCardProps {
-    children?: ReactNode,
     name: string,
-    addUnit: any,
+    addUnit: () => void,
 }
 
 export const UnitCard: FC<UnitCardProps> = ({
-    children,
     name,
     addUnit,
-    ...props
 }) => {
 
     return (
@@ -22,7 +18,7 @@ export const UnitCard: FC<UnitCardProps> = ({
             'px-2 py-3 bg-contrast-light border border-primary-dark border-solid items-center',
             'flex gap-2'
         )}
-        onClick={addUnit}
+            onClick={addUnit}
         >
             <div className={classNames(
                 'basis-4/12 flex flex-col justify-center',

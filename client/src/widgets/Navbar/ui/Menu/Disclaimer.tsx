@@ -1,10 +1,6 @@
+import { Typo } from "@/shared/ui/Typo/Typo";
+import { TypoWeight } from "@/shared/ui/Typo/types";
 import classNames from "classnames";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {TypoWeight} from "@/shared/ui/Typo/types";
-
-interface DisclaimerProps {
-
-}
 
 export const Disclaimer = () => {
     return (

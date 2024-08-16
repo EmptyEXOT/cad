@@ -1,7 +1,7 @@
-import {DropdownActionType, TDropdownReducer} from "../types";
+import { DropdownActionType, TDropdownReducer } from "../types";
 
 export const dropdownReducer: TDropdownReducer = (state, action) => {
-    const {type, payload} = action
+    const { type } = action
     switch (type) {
         case DropdownActionType.Open:
             return {

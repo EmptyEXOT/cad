@@ -1,10 +1,10 @@
-import {Theme, ThemeAction, ThemeActionsType, ThemeState} from "@/shared/theme/types";
+import { Theme, ThemeAction, ThemeActionsType, ThemeState } from "@/shared/theme/types";
 
 
 export type ThemeReducer = (state: ThemeState, action: ThemeAction) => ThemeState
 
 export const themeReducer: ThemeReducer = (state, action) => {
-    const {type, payload} = action
+    const { type } = action
     const theme = state.theme;
     switch (type) {
         case ThemeActionsType.SetDark: {

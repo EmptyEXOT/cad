@@ -1,18 +1,15 @@
-import React, {ReactNode, FC} from 'react';
+import { Card } from "@/pages/MainPage/Sections/FAQSection/Components/Card";
+import { Section } from "@/shared/ui/Section/Section";
+import { TypoWeight } from "@/shared/ui/Typo/types";
+import { Typo } from "@/shared/ui/Typo/Typo";
 import classNames from "classnames";
-import {Section} from "@/shared/ui/Section/Section";
-import {TypoWeight} from "@/shared/ui/Typo/types";
-import {Typo} from "@/shared/ui/Typo/Typo";
-import {Card} from "@/pages/MainPage/Sections/FAQSection/Components/Card";
+import { FC, ReactNode } from 'react';
 
 interface FaqSectionProps {
     children?: ReactNode,
 }
 
-export const FAQSection: FC<FaqSectionProps> = ({
-                                                    children,
-                                                    ...props
-                                                }) => {
+export const FAQSection: FC<FaqSectionProps> = () => {
     return (
         <Section className={classNames(
             'flex flex-col gap-12 pt-24 pb-32',

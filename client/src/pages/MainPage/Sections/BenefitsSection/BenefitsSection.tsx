@@ -1,23 +1,20 @@
-import React, {ReactNode, FC} from 'react';
-import classNames from "classnames";
-import {Section} from "@/shared/ui/Section/Section";
-import {TypoWeight} from "@/shared/ui/Typo/types";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {Card} from "@/pages/MainPage/Sections/BenefitsSection/Components/Card";
+import { Card } from "@/pages/MainPage/Sections/BenefitsSection/Components/Card";
+import { Theme } from "@/shared/theme/types";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import { Section } from "@/shared/ui/Section/Section";
+import { TypoWeight } from "@/shared/ui/Typo/types";
+import { Typo, TypoVariant } from "@/shared/ui/Typo/Typo";
 import AppsIcon from 'assets/AppsIcon.svg';
 import BoltIcon from 'assets/BoltIcon.svg';
 import ForwardIcon from 'assets/ForwardIcon.svg';
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
-import {Theme} from "@/shared/theme/types";
+import classNames from "classnames";
+import { FC, ReactNode } from 'react';
 
 interface BenefitsSectionProps {
     children?: ReactNode,
 }
 
-export const BenefitsSection: FC<BenefitsSectionProps> = ({
-                                                              children,
-                                                              ...props
-                                                          }) => {
+export const BenefitsSection: FC<BenefitsSectionProps> = () => {
     return (
         <Section className={classNames(
             'flex flex-col gap-12 pt-24 pb-32',
@@ -29,17 +26,17 @@ export const BenefitsSection: FC<BenefitsSectionProps> = ({
                 <Card
                     header={'Наши сервисы помогут Вам улучшить существующую АСУТП'}
                     description={'Наша САПР-система предлагает широкий спектр дополнительных функций, которые выделяют ее среди конкурентов.'}
-                    icon={<AppsIcon/>}
+                    icon={<AppsIcon />}
                 />
                 <Card
                     header={'Раскройте весь потенциал ваших проектов'}
                     description={'Наша CAD-система позволяет вам с легкостью создавать потрясающие проекты.'}
-                    icon={<BoltIcon/>}
+                    icon={<BoltIcon />}
                 />
                 <Card
                     header={'Выведите свои проекты на новый уровень'}
                     description={'Откройте для себя расширенные функции, которые произведут революцию в вашем процессе проектирования.'}
-                    icon={<ForwardIcon/>}
+                    icon={<ForwardIcon />}
                 />
             </div>
             <div className={classNames('flex justify-start gap-4 w-full')}>
