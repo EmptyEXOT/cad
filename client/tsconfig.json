@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "module": "ESNext",
+    "target": "es5",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "plugins": [{
+      "name": "typescript-plugin-css-modules"
+    }],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/webpack/*": ["./webpackConfig/*"],
+      "assets/*": ["./src/shared/assets/*"],
+      "@/public/*": ["./public/*"]
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.svg",
+    "./webpackConfig/*.ts",
+    "./public",
+    "webpack.config.ts",
+  ]
+}
