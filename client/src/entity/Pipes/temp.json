@@ -1,0 +1,12 @@
+{
+    "pipes": [
+        {
+            "source": "1",
+            "sourceHandle": "output/main",
+            "target": "2",
+            "targetHandle": "input/secondary",
+            "id": "pipe1",
+            "type": "pipe"
+        }
+    ]
+}

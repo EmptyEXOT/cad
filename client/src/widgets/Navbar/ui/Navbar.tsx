@@ -1,0 +1,70 @@
+import React, {FC, ReactNode} from 'react';
+import classNames from "classnames";
+import cls from "./Navbar.module.scss"
+import {Menu} from "./Menu/Menu";
+import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
+import Burger from "@/shared/ui/Burger/Burger";
+import Logo from '@/shared/assets/Logo.png'
+import {useNavbar} from "../hooks/useNavbar";
+import {useNavbarDispatch} from "../hooks/useNavbarDispatch";
+import {NavbarActionType} from "../types";
+import {Navigation} from "./Navigation/Navigation";
+import {Section} from "@/shared/ui/Section/Section";
+
+interface NavbarProps {
+    children?: ReactNode
+    className?: string | undefined;
+}
+
+export const Navbar: FC<NavbarProps> = (
+    {
+        children,
+        className,
+        ...props
+    }
+) => {
+    const {isOpen} = useNavbar()
+    const dispatchNavbar = useNavbarDispatch()
+
+    const switchIsOpen = () => {
+        dispatchNavbar({type: NavbarActionType.Switch})
+    }
+
+    return (
+        <>
+            <div
+                className={classNames('bg-primary-light md:bg-primary-light z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-b-2 border-b-neutral-250', cls.navbar)}>
+                {/*<div className={classNames(*/}
+                {/*    'container flex justify-between mx-auto px-4 py-3 z-50',*/}
+                {/*    'md:px-16',*/}
+                {/*    'lg:px-32',*/}
+                {/*    'xl:px-64',*/}
+                {/*)}>*/}
+                    <Section className={classNames(
+                        'gap-2 w-full flex justify-between bg-opacity-0',
+                        'relative overflow-hidden',
+                        'z-50 py-3',
+                        '2xl:max-w-[1536px]',
+
+                    )}>
+                        <div className={classNames('flex gap-6')}>
+                            <div className={classNames('flex flex-col justify-center w-full')}>
+                                <img width={30} src={Logo} alt=""/>
+                            </div>
+                        </div>
+                        <div className={classNames('flex gap-2')}>
+                            <Navigation className={classNames('hidden md:flex')}/>
+                            <Button onClick={switchIsOpen}
+                                    variant={ButtonVariant.Primary}
+                                    className={classNames('pe-0 md:!hidden')}>
+                                <Burger isOpen={isOpen}/>
+                            </Button>
+                        </div>
+                    </Section>
+
+                </div>
+            {/*</div>*/}
+            <Menu className={classNames('md:hidden')}/>
+        </>
+    );
+};

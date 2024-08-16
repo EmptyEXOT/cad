@@ -1,0 +1,12 @@
+$size: 2rem;
+$color: black;
+
+.loader {
+  width: $size;
+  height: $size;
+
+  .inner {
+    background-color: $color;
+  }
+}
+

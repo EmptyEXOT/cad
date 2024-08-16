@@ -1,0 +1,15 @@
+$orange: rgba(198, 165, 49, 0.25);
+$cian: rgba(27, 188, 178, 0.25);
+$pink: rgba(215, 45, 218, 0.12);
+$green: rgb(0, 255, 179, 1);
+$purple: rgb(112, 24, 165, 0.6);
+$red: rgb(242, 7, 7, 1);
+
+.shine {
+  //background: linear-gradient(90deg, $orange, $cian, $pink);
+  filter: blur(100px);
+  background: linear-gradient(90deg, $green, $purple, $red);
+}
+
+
+

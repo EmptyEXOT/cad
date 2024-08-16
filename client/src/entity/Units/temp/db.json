@@ -1,0 +1,30 @@
+{
+    "nodes": [
+        {
+            "id": "1",
+            "type": "value",
+            "data": {
+                "capacity": 100
+            },
+            "position": {
+                "x": 600,
+                "y": 200
+            },
+            "handles": [
+            ]
+        },
+        {
+            "id": "2",
+            "type": "value",
+            "data": {
+                "capacity": 100
+            },
+            "position": {
+                "x": 900,
+                "y": 200
+            },
+            "handles": [
+            ]
+        }
+    ]
+}

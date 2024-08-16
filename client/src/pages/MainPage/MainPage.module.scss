@@ -1,0 +1,15 @@
+$gradient-transparency: 1;
+$gradient-pt-1-color: rgba(0,0,0, $gradient-transparency) 65%;
+$gradient-pt-2-color: rgba(36,36,36, $gradient-transparency) 100%;
+//$gradient-pt-3-color: rgba(8,32,1, $gradient-transparency) 100%;
+$gradient-bg-color: black;
+
+.backgroundGradient {
+  background: linear-gradient(
+                  180deg,
+                  $gradient-pt-1-color,
+                  $gradient-pt-2-color,
+                  //$gradient-pt-3-color,
+  );
+}
+

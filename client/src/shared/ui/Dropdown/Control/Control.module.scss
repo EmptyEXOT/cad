@@ -1,0 +1,8 @@
+.control {
+  transition: transform 100ms;
+}
+
+.open {
+  transform: rotate(90deg);
+}
+

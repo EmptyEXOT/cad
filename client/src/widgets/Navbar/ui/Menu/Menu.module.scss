@@ -1,0 +1,18 @@
+$duration: 200ms;
+
+.open {
+  transform: translateY(0);
+  transition-duration: $duration;
+}
+
+.close {
+  transform: translateY(-140%);
+  transition-duration: $duration;
+}
+
+.menuWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.menu {
+}

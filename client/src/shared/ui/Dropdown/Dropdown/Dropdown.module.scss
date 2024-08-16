@@ -1,0 +1,10 @@
+.children {
+  max-height: 0;
+  transition: max-height 200ms ease-out;
+  overflow: hidden;
+}
+
+.open {
+  max-height: 500px;
+  transition: max-height 200ms ease-in;
+}
