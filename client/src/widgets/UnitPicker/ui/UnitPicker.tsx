@@ -1,11 +1,11 @@
-import React, {ReactNode, FC, useCallback} from 'react';
-import classNames from "classnames";
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
-import {ReactFlow, useReactFlow} from "@xyflow/react";
-import {v4} from "uuid";
-import { useAddUnit } from '@/features/addUnit/useAddUnit';
-import { Typo } from '@/shared/ui/Typo/Typo';
+import { FilterProps } from '@/entity/Units/ui/Filter';
+import { PolymerizatorProps } from '@/entity/Units/ui/Polymerizator';
+import { SmelterProps } from '@/entity/Units/ui/Smelter';
+import { ValueProps } from '@/entity/Units/ui/Value';
 import { UnitType } from '@/entity/Units/unitTypes';
+import { useAddUnit } from '@/features/addUnit/useAddUnit';
+import classNames from "classnames";
+import { FC, ReactNode } from 'react';
 import { UnitCard } from './UnitCard';
 
 interface UnitPickerProps {
@@ -13,18 +13,32 @@ interface UnitPickerProps {
 }
 
 export const UnitPicker: FC<UnitPickerProps> = ({
-                                                    children,
-                                                    ...props
-                                                }) => {
-                                    const reactFlow = useReactFlow();
-                                    const nodes = reactFlow.getNodes();
-    const addUnit = useAddUnit(nodes, reactFlow.setNodes);
+    children,
+    ...props
+}) => {
+    const addUnit = useAddUnit();
     return (
         <div className={classNames('absolute w-[20vw] top-0 bottom-0 bg-neutral-100 pt-20 px-2 flex flex-col gap-2')}>
-            <UnitCard name='Резервуар' addUnit={addUnit(UnitType.Value)} />
-            <UnitCard name='Полим-ная колонна' addUnit={addUnit(UnitType.Polymerizator)} />
-            <UnitCard name='Плавитель' addUnit={addUnit(UnitType.Smelter)} />
-            <UnitCard name='Фильтр' addUnit={addUnit(UnitType.Filter)} />
+            <UnitCard name='Резервуар' addUnit={
+                addUnit<ValueProps>
+                    (UnitType.Value, { capacity: 51 })
+            }
+            />
+            <UnitCard name='Полим-ная колонна' addUnit={
+                addUnit<PolymerizatorProps>
+                    (UnitType.Polymerizator, { capacity: 52 })
+            }
+            />
+            <UnitCard name='Плавитель' addUnit={
+                addUnit<SmelterProps>
+                    (UnitType.Smelter, { capacity: 53 })
+            }
+            />
+            <UnitCard name='Фильтр' addUnit={
+                addUnit<FilterProps>
+                    (UnitType.Filter, { capacity: 54 })
+            }
+            />
         </div>
     );
 };
