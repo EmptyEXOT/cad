@@ -1,11 +1,11 @@
-import {createBrowserRouter, Navigate} from "react-router-dom";
-import {Root} from "@/root";
-import React, {Suspense} from "react";
-import {MainPage} from "@/pages/MainPage";
-import {ErrorPage} from "@/pages/ErrorPage";
-import {Loader} from "@/shared/ui/Loader/ui/Loader";
-import {IndevPage} from "@/pages/IndevPage";
-import {AppPage} from "@/pages/AppPage";
+import { AppPage } from "@/pages/AppPage";
+import { ErrorPage } from "@/pages/ErrorPage";
+import { IndevPage } from "@/pages/IndevPage";
+import { MainPage } from "@/pages/MainPage";
+import { Root } from "@/root";
+import { Loader } from "@/shared/ui/Loader/ui/Loader";
+import { Suspense } from "react";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 
 export const router = createBrowserRouter([
     {

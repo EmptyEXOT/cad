@@ -1,28 +1,22 @@
-import React, {FC, ReactNode} from 'react';
-import classNames from "classnames";
-import cls from "./Navbar.module.scss"
-import {Menu} from "./Menu/Menu";
-import {ButtonVariant, Button} from "@/shared/ui/Button/Button";
+import Logo from '@/shared/assets/Logo.png';
 import Burger from "@/shared/ui/Burger/Burger";
-import Logo from '@/shared/assets/Logo.png'
-import {useNavbar} from "../hooks/useNavbar";
-import {useNavbarDispatch} from "../hooks/useNavbarDispatch";
-import {NavbarActionType} from "../types";
-import {Navigation} from "./Navigation/Navigation";
-import {Section} from "@/shared/ui/Section/Section";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import { Section } from "@/shared/ui/Section/Section";
+import classNames from "classnames";
+import { FC, ReactNode } from 'react';
+import { useNavbar } from "../hooks/useNavbar";
+import { useNavbarDispatch } from "../hooks/useNavbarDispatch";
+import { NavbarActionType } from "../types";
+import { Menu } from "./Menu/Menu";
+import cls from "./Navbar.module.scss";
+import { Navigation } from "./Navigation/Navigation";
 
 interface NavbarProps {
     children?: ReactNode
     className?: string | undefined;
 }
 
-export const Navbar: FC<NavbarProps> = (
-    {
-        children,
-        className,
-        ...props
-    }
-) => {
+export const Navbar: FC<NavbarProps> = () => {
     const {isOpen} = useNavbar()
     const dispatchNavbar = useNavbarDispatch()
 
@@ -34,12 +28,6 @@ export const Navbar: FC<NavbarProps> = (
         <>
             <div
                 className={classNames('bg-primary-light md:bg-primary-light z-50 bg-opacity-100 md:bg-opacity-50 backdrop-blur-md border-solid border-b-2 border-b-neutral-250', cls.navbar)}>
-                {/*<div className={classNames(*/}
-                {/*    'container flex justify-between mx-auto px-4 py-3 z-50',*/}
-                {/*    'md:px-16',*/}
-                {/*    'lg:px-32',*/}
-                {/*    'xl:px-64',*/}
-                {/*)}>*/}
                     <Section className={classNames(
                         'gap-2 w-full flex justify-between bg-opacity-0',
                         'relative overflow-hidden',
@@ -63,7 +51,6 @@ export const Navbar: FC<NavbarProps> = (
                     </Section>
 
                 </div>
-            {/*</div>*/}
             <Menu className={classNames('md:hidden')}/>
         </>
     );

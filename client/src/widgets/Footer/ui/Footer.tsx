@@ -9,10 +9,7 @@ interface FooterProps {
     children?: ReactNode,
 }
 
-export const Footer: FC<FooterProps> = ({
-                                            children,
-                                            ...props
-                                        }) => {
+export const Footer: FC<FooterProps> = () => {
     return (
         <div>
             <Section className={classNames(

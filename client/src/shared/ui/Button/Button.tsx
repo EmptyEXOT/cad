@@ -1,8 +1,7 @@
-import React, {ButtonHTMLAttributes, FC, ReactNode} from 'react';
+import { Theme } from "@/shared/theme/types";
 import classNames from "classnames";
-import cls from './Button.module.scss'
-import {useTheme} from "@/shared/theme/hooks/useTheme";
-import {Theme} from "@/shared/theme/types";
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react';
+import cls from './Button.module.scss';
 
 export enum ButtonVariant {
     Primary = 'primary',
@@ -22,7 +21,6 @@ export const Button: FC<ButtonProps> = ({
                                             children,
                                             className,
                                             variant,
-                                            filled = false,
                                             border = false,
     theme = Theme.Dark,
                                             ...props

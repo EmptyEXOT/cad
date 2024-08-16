@@ -12,11 +12,9 @@ interface SwitchProps {
 }
 
 export const Switch: FC<SwitchProps> = ({
-                                            children,
                                             switchCb,
                                             iconOn,
                                             iconOff,
-                                            ...props
                                         }) => {
     const dispatch = useSwitchDispatch();
     const isOn = useSwitch();

@@ -1,21 +1,18 @@
-import React, {ReactNode, FC} from 'react';
-import {Section} from "@/shared/ui/Section/Section";
+import { StepComponent } from "@/pages/MainPage/Sections/ServicesSection/Components/StepComponent";
+import { Theme } from "@/shared/theme/types";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import { Section } from "@/shared/ui/Section/Section";
+import { Typo } from "@/shared/ui/Typo/Typo";
+import { TypoWeight } from "@/shared/ui/Typo/types";
+import Illustration from 'assets/Bez_fona.png';
 import classNames from "classnames";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {TypoAlign, TypoWeight} from "@/shared/ui/Typo/types";
-import {StepComponent} from "@/pages/MainPage/Sections/ServicesSection/Components/StepComponent";
-import Illustration from 'assets/Bez_fona.png'
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
-import {Theme} from "@/shared/theme/types";
+import { FC, ReactNode } from 'react';
 
 interface ServicesSectionProps {
     children?: ReactNode,
 }
 
-export const ServicesSection: FC<ServicesSectionProps> = ({
-                                                              children,
-                                                              ...props
-                                                          }) => {
+export const ServicesSection: FC<ServicesSectionProps> = () => {
     return (
         <Section className={classNames(
             'flex flex-col gap-16 pt-24 pb-32',

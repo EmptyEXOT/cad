@@ -1,17 +1,14 @@
-import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
-import {Header} from './Header';
-import {Description} from "./Description";
-import {AboutStatsSvg} from "./AboutStatsSVG";
+import { FC, ReactNode } from 'react';
+import { AboutStatsSvg } from "./AboutStatsSVG";
+import { Description } from "./Description";
+import { Header } from './Header';
 
 interface ProgressBlockProps {
     children?: ReactNode,
 }
 
-export const ProgressBlock: FC<ProgressBlockProps> = ({
-                                                          children,
-                                                          ...props
-                                                      }) => {
+export const ProgressBlock: FC<ProgressBlockProps> = () => {
     return (
         <div className={classNames(
             'h-fit flex flex-col gap-6 bg-secondary-dark py-8 border border-solid border-neutral-650 rounded-lg mb-12',
@@ -19,7 +16,7 @@ export const ProgressBlock: FC<ProgressBlockProps> = ({
         )}>
             <Header />
             <div className={classNames('relative w-full')}>
-                <AboutStatsSvg/>
+                <AboutStatsSvg />
             </div>
             <Description />
         </div>

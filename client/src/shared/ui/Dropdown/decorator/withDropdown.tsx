@@ -1,8 +1,8 @@
-import React from "react";
-import {StoryFn} from "@storybook/react";
-import {DropdownProvider} from "@/shared/ui/Dropdown/provider/Dropdown.provider";
+/* eslint-disable react/display-name */
+import { DropdownProvider } from "@/shared/ui/Dropdown/provider/Dropdown.provider";
+import { Typo } from "@/shared/ui/Typo/Typo";
+import { StoryFn } from "@storybook/react";
 import classNames from "classnames";
-import {Typo} from "@/shared/ui/Typo/Typo";
 
 export const withDropdown = (isOpen: boolean) => (Story: StoryFn) => {
     return <DropdownProvider isOpen={isOpen}>

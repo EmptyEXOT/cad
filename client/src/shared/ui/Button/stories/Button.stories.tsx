@@ -1,8 +1,7 @@
-import React from "react";
-import {Meta, StoryObj} from "@storybook/react";
-import {Button, ButtonVariant} from "../Button";
-import {withTheme} from "./withTheme";
-import {Theme} from "@/shared/theme/types";
+import { Theme } from "@/shared/theme/types";
+import { Meta, StoryObj } from "@storybook/react";
+import { Button, ButtonVariant } from "../Button";
+import { withTheme } from "./withTheme";
 
 const meta: Meta<typeof Button> = {
     title: 'Shared/Button',

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, {FC, ReactElement, ReactNode} from 'react';
 import "./Typo.scss"
 import {H1, H2, H3, H4, H5, H6, HxComponent} from "@/shared/ui/Typo/Header/H";
@@ -19,7 +20,7 @@ export enum TypoVariant {
     PrimaryLight = 'text-primary-light',
     SecondaryLight = 'text-secondary-light',
     PrimaryDark = 'text-contrast-dark',
-    SecondaryDark = 'text-contrast-dark',
+    SecondaryDark = 'text-secondary-dark',
 }
 
 export interface TypoProps {

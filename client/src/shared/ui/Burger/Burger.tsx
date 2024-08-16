@@ -1,6 +1,6 @@
-import React, {FC, ReactNode} from 'react';
 import classNames from "classnames";
-import cls from "./Burger.module.scss"
+import { FC, ReactNode } from 'react';
+import cls from "./Burger.module.scss";
 
 interface BurgerProps {
     children?: ReactNode
@@ -10,7 +10,6 @@ interface BurgerProps {
 
 const Burger: FC<BurgerProps> = (
     {
-        children,
         isOpen,
         ...props
     }

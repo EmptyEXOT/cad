@@ -17,7 +17,7 @@ const meta: Meta<typeof Navbar> = {
     },
     decorators: [
         withRouter,
-        (Story, context) =>
+        (Story) =>
             <div>
                 <NavbarProvider>
                     <Story/>

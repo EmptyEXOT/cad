@@ -1,22 +1,21 @@
-import React, {FC} from 'react';
+import { useDropdown } from "@/shared/ui/Dropdown/hooks/useDropdown";
+import { useDropdownDispatch } from "@/shared/ui/Dropdown/hooks/useDropdownDispatch";
+import { DropdownActionType } from "@/shared/ui/Dropdown/types";
+import classNames from "classnames";
+import { FC } from 'react';
 import OpenIcon from '../../../assets/openIcon.svg';
 import cls from './Control.module.scss';
-import classNames from "classnames";
-import {useDropdown} from "@/shared/ui/Dropdown/hooks/useDropdown";
-import {useDropdownDispatch} from "@/shared/ui/Dropdown/hooks/useDropdownDispatch";
-import {DropdownActionType} from "@/shared/ui/Dropdown/types";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface ControlProps {
 }
 
-export const Control: FC<ControlProps> = ({
-                                              ...props
-                                          }) => {
-    const {isOpen} = useDropdown()
+export const Control: FC<ControlProps> = () => {
+    const { isOpen } = useDropdown()
     const dispatch = useDropdownDispatch();
 
     const switchIsOpen = () => {
-        dispatch({type: DropdownActionType.Switch})
+        dispatch({ type: DropdownActionType.Switch })
     }
 
     return (
@@ -26,7 +25,7 @@ export const Control: FC<ControlProps> = ({
                 cls.control,
                 isOpen && cls.open,
             )}>
-            <OpenIcon/>
+            <OpenIcon />
         </button>
     );
 };

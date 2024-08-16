@@ -1,9 +1,9 @@
-import {NavbarAction, NavbarActionType, NavbarState} from "@/widgets/Navbar/types";
+import { NavbarAction, NavbarActionType, NavbarState } from "@/widgets/Navbar/types";
 
 export type TNavbarReducer = (state: NavbarState, action: NavbarAction) => NavbarState;
 
 export const navbarReducer: TNavbarReducer = (state, action) => {
-    const {type, payload} = action
+    const { type } = action
     switch (type) {
         case NavbarActionType.Open:
             return {

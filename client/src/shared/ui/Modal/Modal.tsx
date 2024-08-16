@@ -16,6 +16,7 @@ export const Modal: FC<ModalProps> = (
 ) => {
     const {setIsModalOpen, isModalOpen} = useModalContext()
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const onEscapeKeydown = (event: any) => {
         if (event.key === 'Escape') setIsModalOpen(false)
     }

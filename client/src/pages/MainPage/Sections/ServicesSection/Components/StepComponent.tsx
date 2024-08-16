@@ -1,8 +1,8 @@
-import React, {FC, ReactNode} from 'react';
-import {Typo} from "@/shared/ui/Typo/Typo";
+import { Img } from "@/shared/ui/Image/Img";
+import { TypoAlign, TypoWeight } from "@/shared/ui/Typo/types";
+import { Typo } from "@/shared/ui/Typo/Typo";
 import classNames from "classnames";
-import {Img} from "@/shared/ui/Image/Img";
-import {TypoAlign, TypoWeight} from "@/shared/ui/Typo/types";
+import { FC, ReactNode } from 'react';
 
 interface StepComponentProps {
     children?: ReactNode,
@@ -13,13 +13,11 @@ interface StepComponentProps {
 }
 
 export const StepComponent: FC<StepComponentProps> = ({
-                                                          children,
-                                                          header,
-                                                          description,
-                                                          illustration,
-                                                          stepNumber,
-                                                          ...props
-                                                      }) => {
+    header,
+    description,
+    illustration,
+    stepNumber,
+}) => {
     return (
         <div className={classNames(
             'flex flex-col gap-8',
@@ -28,7 +26,7 @@ export const StepComponent: FC<StepComponentProps> = ({
             <div className={classNames('flex flex-col')}>
                 <div className={classNames(
                     'w-0.5 h-10 bg-gradient-to-t from-contrast-dark self-center'
-                )}/>
+                )} />
                 <div className={classNames(
                     'rounded-full border-2 border-solid border-b-contrast-dark w-10 h-10 self-center',
                     'flex justify-center items-center'

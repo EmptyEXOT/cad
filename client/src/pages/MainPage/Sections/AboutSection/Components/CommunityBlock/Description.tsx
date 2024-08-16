@@ -1,16 +1,13 @@
-import React, {ReactNode, FC} from 'react';
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {TypoAlign} from "@/shared/ui/Typo/types";
+import { Typo, TypoVariant } from "@/shared/ui/Typo/Typo";
+import { TypoAlign } from "@/shared/ui/Typo/types";
 import classNames from "classnames";
+import { FC, ReactNode } from 'react';
 
 interface DescriptionProps {
     children?: ReactNode,
 }
 
-export const Description: FC<DescriptionProps> = ({
-                                                      children,
-                                                      ...props
-                                                  }) => {
+export const Description: FC<DescriptionProps> = () => {
     return (
         <Typo.P
             align={TypoAlign.Center}

@@ -1,15 +1,15 @@
-import React, {FC} from 'react';
+import { useNavbar } from "@/widgets/Navbar/hooks/useNavbar";
+import { Navigation } from "@/widgets/Navbar/ui/Navigation/Navigation";
 import classNames from "classnames";
-import cls from './Menu.module.scss'
-import {Navigation} from "@/widgets/Navbar/ui/Navigation/Navigation";
-import {useNavbar} from "@/widgets/Navbar/hooks/useNavbar";
+import { FC } from 'react';
+import cls from './Menu.module.scss';
 
 interface MenuProps {
     className?: string
 }
 
-export const Menu: FC<MenuProps> = ({className, ...props}) => {
-    const {isOpen} = useNavbar()
+export const Menu: FC<MenuProps> = ({ className }) => {
+    const { isOpen } = useNavbar()
 
     return (
         <div
@@ -20,7 +20,7 @@ export const Menu: FC<MenuProps> = ({className, ...props}) => {
                 isOpen ? cls.open : cls.close,
                 className
             )}>
-            <Navigation/>
+            <Navigation />
         </div>
     );
 };

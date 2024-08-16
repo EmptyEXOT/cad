@@ -1,10 +1,9 @@
 import { edgeTypes } from '@/entity/Pipes/edgeTypes';
 import { selectAllPipes } from '@/entity/Pipes/model/Pipes.selectors';
-import { selectAllUnits, unitsActions } from '@/entity/Units/index';
-import { UnitType, unitTypes } from '@/entity/Units/unitTypes';
-import { useAddUnit } from '@/features/addUnit/useAddUnit';
+import { selectAllUnits } from '@/entity/Units/index';
+import { unitTypes } from '@/entity/Units/unitTypes';
 import { saveProject } from '@/features/saveProject';
-import { useAppDispatch, useAppSelector } from '@/shared/store/hooks';
+import { useAppSelector } from '@/shared/store/hooks';
 import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
 import { Typo } from '@/shared/ui/Typo/Typo';
 import {
@@ -19,27 +18,14 @@ import {
     useNodesState
 } from "@xyflow/react";
 import '@xyflow/react/dist/style.css';
-import { NodeHandle } from "@xyflow/system/dist/esm/types/nodes";
 import classNames from "classnames";
 import { FC, ReactNode, useCallback } from 'react';
-import { v4 } from 'uuid';
 
 interface AppProps {
     children?: ReactNode,
 }
 
-const initialNodes: Node[] = [
-    { id: '1', position: { x: 25, y: 50 }, data: { label: '1' }, type: 'value' },
-    { id: '2', position: { x: 100, y: 200 }, data: { label: '2' } }
-]
-
-const initialEdges: Edge[] = [{ id: 'e1-2', source: '1', target: '2', type: 'pipe', style: { stroke: 'black' } }];
-
-export const App: FC<AppProps> = ({
-    children,
-    ...props
-}) => {
-    const dispatch = useAppDispatch();
+export const App: FC<AppProps> = () => {
     const storeNodes = useAppSelector(selectAllUnits);
     const storePipes = useAppSelector(selectAllPipes);
 
@@ -59,9 +45,11 @@ export const App: FC<AppProps> = ({
         targetHandle: pipe.targetHandle,
         type: pipe.type,
     } satisfies Edge))
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [nodes, setNodes, onNodesChange] = useNodesState(flowNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(flowPipes);
     const onConnect = useCallback(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         (params: any) => setEdges((eds) => addEdge({ ...params, type: 'pipe' }, eds)),
         [setEdges],
     );
@@ -82,7 +70,7 @@ export const App: FC<AppProps> = ({
                 <Controls />
                 <MiniMap />
             </ReactFlow>
-            
+
             <Button variant={ButtonVariant.Primary} onClick={saveProject}>
                 <Typo.H1>Save</Typo.H1>
             </Button>

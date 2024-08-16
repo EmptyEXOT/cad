@@ -1,6 +1,5 @@
-import {FC} from "react";
-import {ControlProps} from "@/shared/ui/Dropdown/Control/Control";
-import {Test} from "@/widgets/Module/Test/Test";
+import { Test } from "@/widgets/Module/Test/Test";
+import { FC } from "react";
 
 enum EModule {
     // Controls = 'Controls',
@@ -12,7 +11,7 @@ enum EModule {
 interface ModuleProps {
     // [EModule.Controls]: ControlProps,
     // [EModule.Metronome]: MetronomeProps,
-    [EModule.Test]: {},
+    [EModule.Test]: object,
 
 }
 

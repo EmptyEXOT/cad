@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, {FC, ReactElement} from 'react';
 import classNames from "classnames";
 import "../Typo.scss"
 import {TypoProps, TypoVariant} from "@/shared/ui/Typo/Typo";
 import {TypoAlign, TypoWeight} from "@/shared/ui/Typo/types";
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface ParagraphProps extends TypoProps {
 }
 
@@ -18,7 +20,6 @@ const P: PComponent = (
         underline = false,
         className,
         align = TypoAlign.Start,
-        ...props
     }
 ): ReactElement | null => {
     return (

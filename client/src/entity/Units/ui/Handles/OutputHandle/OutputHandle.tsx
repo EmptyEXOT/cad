@@ -1,4 +1,3 @@
-import { FC, ReactNode } from 'react';
 import { Handle, Position } from '@xyflow/react';
 
 interface OutputHandleProps<HandleId> {

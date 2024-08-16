@@ -1,16 +1,13 @@
-import React, {ReactNode, FC} from 'react';
+import { FC, ReactNode } from 'react';
 
 interface TestProps {
     children?: ReactNode,
 }
 
-export const Test: FC<TestProps> = ({
-                                        children,
-                                        ...props
-                                    }) => {
+export const Test: FC<TestProps> = () => {
     return (
         <div>
-            
+
         </div>
     );
 };

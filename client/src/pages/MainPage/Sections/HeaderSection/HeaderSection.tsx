@@ -1,19 +1,16 @@
-import React, {FC, ReactNode} from 'react';
-import classNames from "classnames";
+import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+import { Section } from "@/shared/ui/Section/Section";
+import { Typo, TypoVariant } from "@/shared/ui/Typo/Typo";
+import { TypoAlign, TypoWeight } from "@/shared/ui/Typo/types";
 import DrumImage from "assets/Hero.jpg";
-import {Typo, TypoVariant} from "@/shared/ui/Typo/Typo";
-import {TypoAlign, TypoWeight} from "@/shared/ui/Typo/types";
-import {Section} from "@/shared/ui/Section/Section";
-import {Button, ButtonVariant} from "@/shared/ui/Button/Button";
+import classNames from "classnames";
+import { FC, ReactNode } from 'react';
 
 interface HeaderSectionProps {
     children?: ReactNode,
 }
 
-export const HeaderSection: FC<HeaderSectionProps> = ({
-                                                          children,
-                                                          ...props
-                                                      }) => {
+export const HeaderSection: FC<HeaderSectionProps> = () => {
     return (
         <Section className={classNames(
             'gap-2 pt-24 pb-32 min-h-screen w-full flex flex-col justify-center',
@@ -26,7 +23,7 @@ export const HeaderSection: FC<HeaderSectionProps> = ({
                     'object-cover filter grayscale-80 brightness-20 scale-110 h-screen w-full',
                     '',
                     ''
-                )}/>
+                )} />
             </div>
             <div className={classNames('flex flex-col justify-center')}>
                 <div className={classNames('flex flex-col justify-center gap-16')}>
