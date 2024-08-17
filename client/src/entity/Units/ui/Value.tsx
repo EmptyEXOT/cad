@@ -4,6 +4,8 @@ import { Node, NodeProps, Position } from '@xyflow/react';
 import classNames from 'classnames';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
+import { Agitator, MinMax, UnitBase } from '../model/types';
+import { unitBaseDefaults } from '../model/defaults';
 
 enum ValueInput {
     Main = 'input/main',
@@ -15,10 +17,38 @@ enum ValueOutput {
 }
 
 export type ValueProps = {
-    capacity: number,    
-}
+    capacity: number,
+    allowableTemperature: MinMax,
+    allowablePressure: MinMax,
+    heatingPower: number,
+    heatingRange: MinMax,
+    agitator: Agitator,   
+} & UnitBase
 
 type ValueNode = Node<ValueProps, 'value'>
+
+export const valueDefaults: ValueProps = {
+    ...unitBaseDefaults,
+    agitator: {
+        drivePower: null,
+        speed: null,
+        type: null,
+    },
+    allowablePressure: {
+        min: null,
+        max: null
+    },
+    allowableTemperature: {
+        min: null,
+        max: null
+    },
+    capacity: null,
+    heatingPower: null,
+    heatingRange: {
+        min: null,
+        max: null,
+    },
+}
 
 export const ValueNode = (props: NodeProps<ValueNode>) => {
 

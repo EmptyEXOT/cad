@@ -4,10 +4,16 @@ import { Node, NodeProps, Position } from '@xyflow/react';
 import classNames from 'classnames';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
+import { IPLevel, MinMax, UnitBase } from '../model/types';
+import { unitBaseDefaults } from '../model/defaults';
 
 export type SmelterProps = {
     capacity: number,
-}
+    allowableTemperature: MinMax,
+    heatingPower: number,
+    heatingRange: MinMax,
+    ip: IPLevel,
+} & UnitBase
 
 type SmelterNode = Node<SmelterProps, 'smelter'>
 
@@ -19,6 +25,24 @@ enum SmelterInput {
 enum SmelterOutput {
     Main = 'output/main',
     Condensate = 'output/condansate',
+}
+
+export const smelterDefaults: SmelterProps = {
+    ...unitBaseDefaults,
+    allowableTemperature: {
+        min: null,
+        max: null,
+    },
+    capacity: 100,
+    heatingPower: null,
+    heatingRange: {
+        min: null,
+        max: null,
+    },
+    ip: {
+        dust: null,
+        water: null,
+    },
 }
 
 export const SmelterNode = (props: NodeProps<SmelterNode>) => {

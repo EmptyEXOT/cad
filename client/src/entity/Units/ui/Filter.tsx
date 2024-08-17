@@ -4,10 +4,17 @@ import { Node, NodeProps, Position } from '@xyflow/react';
 import classNames from 'classnames';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
+import { IPLevel, MinMax, UnitBase } from '../model/types';
+import { unitBaseDefaults } from '../model/defaults';
 
 export type FilterProps = {
-    capacity: number
-}
+    capacity: number,
+    allowableTemperature: MinMax,
+    allowablePressure: MinMax,
+    heatingPower: number,
+    heatingRange: MinMax,
+    ip: IPLevel,
+} & UnitBase
 
 type FilterNode = Node<FilterProps, 'filter'>
 
@@ -19,6 +26,24 @@ enum FilterInput {
 enum FilterOutput {
     Main = 'output/main',
     Condensate = 'output/condansate',
+}
+
+export const filterDefaults: FilterProps = {
+    ...unitBaseDefaults,
+    allowablePressure: {
+        min: null,
+        max: null,
+    },
+    allowableTemperature: {
+        min: null,
+        max: null,
+    },
+    capacity: 100,
+    heatingPower: null,
+    heatingRange: {
+        min: null,
+        max: null,
+    },
 }
 
 export const FilterNode = (props: NodeProps<FilterNode>) => {   
