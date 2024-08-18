@@ -7,5 +7,6 @@ export const unitBaseDefaults: UnitBase = {
     ip: {
         dust: null,
         water: null,
-    }
+    },
+    isToolbarVisible: false,
 }
