@@ -19,6 +19,7 @@ export type UnitBase = {
     // TODO add enum or string union type for fireProteciton 
     fireProteciton: string,
     ip: IPLevel,
+    isToolbarVisible: boolean,
 }
 
 export interface MinMax<L = number, H = number>  {

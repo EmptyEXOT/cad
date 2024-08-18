@@ -2,10 +2,11 @@ import { Typo } from '@/shared/ui/Typo/Typo';
 import { TypoAlign } from '@/shared/ui/Typo/types';
 import { Node, NodeProps, Position } from '@xyflow/react';
 import classNames from 'classnames';
+import { unitBaseDefaults } from '../model/defaults';
+import { Agitator, MinMax, UnitBase } from '../model/types';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
-import { Agitator, MinMax, UnitBase } from '../model/types';
-import { unitBaseDefaults } from '../model/defaults';
+import { Toolbar } from '@/widgets/Toolbar/ui/Toolbar';
 
 enum ValueInput {
     Main = 'input/main',
@@ -53,6 +54,8 @@ export const valueDefaults: ValueProps = {
 export const ValueNode = (props: NodeProps<ValueNode>) => {
 
     return (
+        <>
+        <Toolbar />
         <div className={classNames('bg-neutral-100 border-2 border-solid border-neutral-200 w-24 h-32 p-4')}>
             <InputHandle<ValueInput> id={ValueInput.Main} position={Position.Top} left={70} />
             <InputHandle<ValueInput> id={ValueInput.Secondary} position={Position.Top} left={25} />
@@ -60,5 +63,7 @@ export const ValueNode = (props: NodeProps<ValueNode>) => {
             <Typo.H5 align={TypoAlign.Center} className={classNames('break-words w-full')}>Value</Typo.H5>
             <Typo.H5>{props.data.capacity}</Typo.H5>
         </div>
+        </>
+        
     );
 };
