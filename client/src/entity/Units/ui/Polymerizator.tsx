@@ -6,6 +6,7 @@ import { unitBaseDefaults } from '../model/defaults';
 import { Agitator, MinMax, UnitBase } from '../model/types';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
+import { withToolbar } from '@/widgets/Toolbar/ui/withToolbar';
 
 export enum PolymerizationType {
     Radical = 'radical',
@@ -60,7 +61,7 @@ export const polymerizatorDefaults: PolymerizatorProps = {
     polymerizationType: null,
 }
 
-export const PolymerizatorNode = (props: NodeProps<PolymerizatorNode>) => {
+export const PolymerizatorNode = withToolbar((props: NodeProps<PolymerizatorNode>) => {
     return (
         <div className={classNames('bg-neutral-100 border-2 border-solid border-neutral-200 w-24 h-64 p-4')}>
             <InputHandle<PolymerizatorInput> id={PolymerizatorInput.Main} position={Position.Top} left={70} />
@@ -71,4 +72,4 @@ export const PolymerizatorNode = (props: NodeProps<PolymerizatorNode>) => {
             <Typo.H5>{props.data.capacity}</Typo.H5>
         </div>
     );
-};
+});

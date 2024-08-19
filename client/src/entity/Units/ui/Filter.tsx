@@ -6,6 +6,7 @@ import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
 import { IPLevel, MinMax, UnitBase } from '../model/types';
 import { unitBaseDefaults } from '../model/defaults';
+import { withToolbar } from '@/widgets/Toolbar/ui/withToolbar';
 
 export type FilterProps = {
     capacity: number,
@@ -46,7 +47,7 @@ export const filterDefaults: FilterProps = {
     },
 }
 
-export const FilterNode = (props: NodeProps<FilterNode>) => {   
+export const FilterNode = withToolbar((props: NodeProps<FilterNode>) => {   
     return (
         <div className={classNames('bg-neutral-100 border-2 border-solid border-neutral-200 w-24 h-40 p-4')}>
             <InputHandle<FilterInput> id={FilterInput.Main} position={Position.Bottom} left={25}/>
@@ -57,4 +58,4 @@ export const FilterNode = (props: NodeProps<FilterNode>) => {
             <Typo.H5>{props.data.capacity}</Typo.H5>
         </div>
     );
-};
+});

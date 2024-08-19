@@ -7,6 +7,7 @@ import { Agitator, MinMax, UnitBase } from '../model/types';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
 import { Toolbar } from '@/widgets/Toolbar/ui/Toolbar';
+import { withToolbar } from '@/widgets/Toolbar/ui/withToolbar';
 
 enum ValueInput {
     Main = 'input/main',
@@ -51,11 +52,10 @@ export const valueDefaults: ValueProps = {
     },
 }
 
-export const ValueNode = (props: NodeProps<ValueNode>) => {
+export const ValueNode = withToolbar((props: NodeProps<ValueNode>) => {
 
     return (
         <>
-        <Toolbar />
         <div className={classNames('bg-neutral-100 border-2 border-solid border-neutral-200 w-24 h-32 p-4')}>
             <InputHandle<ValueInput> id={ValueInput.Main} position={Position.Top} left={70} />
             <InputHandle<ValueInput> id={ValueInput.Secondary} position={Position.Top} left={25} />
@@ -66,4 +66,4 @@ export const ValueNode = (props: NodeProps<ValueNode>) => {
         </>
         
     );
-};
+});

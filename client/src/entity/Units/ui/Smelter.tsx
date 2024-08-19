@@ -6,6 +6,7 @@ import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
 import { IPLevel, MinMax, UnitBase } from '../model/types';
 import { unitBaseDefaults } from '../model/defaults';
+import { withToolbar } from '@/widgets/Toolbar/ui/withToolbar';
 
 export type SmelterProps = {
     capacity: number,
@@ -45,7 +46,7 @@ export const smelterDefaults: SmelterProps = {
     },
 }
 
-export const SmelterNode = (props: NodeProps<SmelterNode>) => {
+export const SmelterNode = withToolbar((props: NodeProps<SmelterNode>) => {
     return (
         <div className={classNames('bg-neutral-100 border-2 border-solid border-neutral-200 w-24 h-40 p-4')}>
             <InputHandle<SmelterInput> id={SmelterInput.Main} position={Position.Top} left={70} />
@@ -56,4 +57,4 @@ export const SmelterNode = (props: NodeProps<SmelterNode>) => {
             <Typo.H5>{props.data.capacity}</Typo.H5>
         </div>
     );
-};
+});
