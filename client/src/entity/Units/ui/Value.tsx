@@ -1,13 +1,12 @@
 import { Typo } from '@/shared/ui/Typo/Typo';
 import { TypoAlign } from '@/shared/ui/Typo/types';
+import { withToolbar } from '@/widgets/Toolbar/ui/withToolbar';
 import { Node, NodeProps, Position } from '@xyflow/react';
 import classNames from 'classnames';
 import { unitBaseDefaults } from '../model/defaults';
 import { Agitator, MinMax, UnitBase } from '../model/types';
 import { InputHandle } from './Handles/InputHandle/InputHandle';
 import { OutputHandle } from './Handles/OutputHandle/OutputHandle';
-import { Toolbar } from '@/widgets/Toolbar/ui/Toolbar';
-import { withToolbar } from '@/widgets/Toolbar/ui/withToolbar';
 
 enum ValueInput {
     Main = 'input/main',

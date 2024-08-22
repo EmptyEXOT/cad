@@ -5,6 +5,7 @@ import { unitTypes } from '@/entity/Units/unitTypes';
 import { saveProject } from '@/features/saveProject';
 import { useAppSelector } from '@/shared/store/hooks';
 import { Button, ButtonVariant } from "@/shared/ui/Button/Button";
+// import { ModalProvider } from '@/shared/ui/Modal/provider/Modal.provider';
 import { Typo } from '@/shared/ui/Typo/Typo';
 import {
     addEdge,
@@ -55,26 +56,25 @@ export const App: FC<AppProps> = () => {
     );
 
     return (
-        <div className={classNames('w-screen h-screen')}>
-            <ReactFlow
-                nodeTypes={unitTypes}
-                nodes={nodes}
-                edgeTypes={edgeTypes}
-                edges={edges}
-                onNodesChange={onNodesChange}
-                onEdgesChange={onEdgesChange}
-                onConnect={onConnect}
-                snapToGrid={true}
-            >
-                <Background />
-                <Controls />
-                <MiniMap />
-            </ReactFlow>
-
-            <Button variant={ButtonVariant.Primary} onClick={saveProject}>
-                <Typo.H1>Save</Typo.H1>
-            </Button>
-        </div>
+            <div className={classNames('w-screen h-screen')}>
+                <ReactFlow
+                    nodeTypes={unitTypes}
+                    nodes={nodes}
+                    edgeTypes={edgeTypes}
+                    edges={edges}
+                    onNodesChange={onNodesChange}
+                    onEdgesChange={onEdgesChange}
+                    onConnect={onConnect}
+                    snapToGrid={true}
+                >
+                    <Background />
+                    <Controls />
+                    <MiniMap />
+                </ReactFlow>
+                <Button variant={ButtonVariant.Primary} onClick={saveProject}>
+                    <Typo.H1>Save</Typo.H1>
+                </Button>
+            </div>
     );
 };
 

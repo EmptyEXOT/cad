@@ -12,7 +12,8 @@
     "storybook": "storybook dev -p 6006 -c .storybook",
     "build-storybook": "storybook build",
     "test": "jest",
-    "lint": "npx eslint src/**"
+    "lint": "npx eslint src/**",
+    "lint:quiet": "npx eslint --quiet src/**"
   },
   "keywords": [],
   "author": "",
