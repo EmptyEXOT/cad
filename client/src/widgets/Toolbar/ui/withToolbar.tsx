@@ -1,5 +1,4 @@
-import { ComponentType, FC, ReactNode } from 'react';
-import classNames from 'classnames';
+import { ComponentType, FC } from 'react';
 import { Toolbar } from './Toolbar';
 
 export function withToolbar<UnitProps>

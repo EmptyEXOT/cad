@@ -1,36 +1,20 @@
+import { recursiveTraversal } from '@/shared/lib/forEachRecursive/forEachRecursive';
+import { Button, ButtonVariant } from '@/shared/ui/Button/Button';
+import { useModalDispatch } from '@/shared/ui/Modal/hooks/useModalDispatch';
+import { ModalActionType } from '@/shared/ui/Modal/types';
+import { ToolbarModal } from '@/widgets/ToolbarModal/ui/ToolbarModal';
 import { NodeToolbar, Position, useNodeId, useNodesData } from '@xyflow/react';
 import classNames from 'classnames';
-import { FC, useEffect } from 'react';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function serializeObject(obj: any, parentKey = ''): any {
-    const result = [];
-
-    // eslint-disable-next-line prefer-const
-    for (let key in obj) {
-        // eslint-disable-next-line no-prototype-builtins
-        if (obj.hasOwnProperty(key)) {
-            const fullKey = parentKey ? `${parentKey}.${key}` : key;
-            const value = obj[key];
-
-            if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
-                result.push(...serializeObject(value, fullKey));
-            } else {
-                result.push([fullKey, value]);
-            }
-        }
-    }
-
-    return result;
-}
+import { FC } from 'react';
+import { createPortal } from 'react-dom';
+import { ToolbarLine } from './ToolbarLine';
 
 export const Toolbar: FC = () => {
     const nodeId = useNodeId();
     const nodeData = useNodesData(nodeId);
 
-    useEffect(() => {
-        console.log(serializeObject(nodeData.data));        
-    }, [])
+    const modalDispatch = useModalDispatch()
+
     return (
         <NodeToolbar
             position={Position.Right}
@@ -41,7 +25,15 @@ export const Toolbar: FC = () => {
                 'border border-solid border-x-neutral-500 rounded-xl p-4 bg-contrast-light',
             )}
         >
-            {nodeId}
+            <Button variant={ButtonVariant.Primary} onClick={() => { modalDispatch({ type: ModalActionType.Switch }) }}>Modify</Button>
+            {recursiveTraversal<string | number>(nodeData.data).map((obj, idx) =>
+                <ToolbarLine key={idx} prop={obj.key} value={obj.value} />
+            )}
+            {/* TODO replace ToolbarModal upper */}
+            {createPortal(
+                <ToolbarModal />,
+                document.body
+            )}
         </NodeToolbar>
     );
 };

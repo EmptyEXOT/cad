@@ -1,18 +1,20 @@
 import { Typo } from '@/shared/ui/Typo/Typo';
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
 interface ToolbarLineProps {
-    data: string | number,
+    prop: string,
+    value?: string | number | ReactNode;
 }
 
 export const ToolbarLine: FC<ToolbarLineProps> = ({
-    data,
+    prop,
+    value,
 }) => {
-
     return (
-        <div className={classNames('flex')}>
-            <Typo.H4>{data}</Typo.H4>
+        <div className={classNames('flex gap-2')}>
+            <Typo.H4>{prop}</Typo.H4>
+            {value}
         </div>
     );
 };
