@@ -1,7 +1,7 @@
-import React, { ReactNode, FC, useReducer } from 'react';
-import { switchReducer } from "@/shared/ui/Switch/reducer/SwitchReducer";
-import { SwitchContext } from '../context/Switch.context';
 import { SwitchDispatchContext } from "@/shared/ui/Switch/context/SwitchDispatch.context";
+import { switchReducer } from "@/shared/ui/Switch/reducer/SwitchReducer";
+import { FC, ReactNode, useReducer } from 'react';
+import { SwitchContext } from '../context/Switch.context';
 
 interface SwitchProviderProps {
     children?: ReactNode,
